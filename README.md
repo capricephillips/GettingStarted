@@ -162,7 +162,7 @@ Date: Thu Jul 2 09:59:47 2015 -0700<br/>
    Initial version<br/>
 </pre>
 
-Those horrendous hexadecimal strings are "commit IDs" - they are what what you need to revert to an old version of your document. Actually, you don't need the whole string, just the first 7 characters. Suppose you want to go back and work on your old version (the one where you added the references but before you merged in the rubbish that Phil wrote). Here's what what you would do:
+Those horrendous hexadecimal strings are "commit IDs" - they are what what you need to revert to an old version of your document. Actually, you don't need the whole string, just the first 7 characters. Suppose you want to go back and work on your old version (the one where you added the references but before you merged in the rubbish that Phil wrote). Here's what you would do:
 
 <table>
   <tbody>
@@ -264,7 +264,7 @@ Now, suppose you want to submit your version of the document to a journal. You t
   </tbody>
 </table>
 
-Hopefully this shows something of how git makes keeping track of your changes much simpler. You only ever edit one file, and you only have to do minimal manual editing to merge changes from multiple collaborators ("konflicts" between different versions of the same files do arise, but only when the same lines of the file have been edited, and so they are usually easy to fix - certainly much easier than merging two versions by hand in an editor). Branches take a bit of getting used to: a git checkout can make your current working directory look very different, unlike any other unix command you use! But thinking of it as being like "cd" is helpful. The "git status" command is incredibly useful: it tells you which files have been modified since the last commit, if there are any files that have not yet been added to the repository, if any files have been deleted since the last commit, all as well as which branch you are on.
+Hopefully this shows something of how git makes keeping track of your changes much simpler. You only ever edit one file, and you only have to do minimal manual editing to merge changes from multiple collaborators ("conflicts" between different versions of the same files do arise, but only when the same lines of the file have been edited, and so they are usually easy to fix - certainly much easier than merging two versions by hand in an editor). Branches take a bit of getting used to: a git checkout can make your current working directory look very different, unlike any other unix command you use! But thinking of it as being like "cd" is helpful. The "git status" command is incredibly useful: it tells you which files have been modified since the last commit, if there are any files that have not yet been added to the repository, if any files have been deleted since the last commit, all as well as which branch you are on.
 
 As you might have guessed, git pull is actually a shortcut to two commands one after the other: git fetch (to get any new commits from the remote repository) and git merge (to merge the files in the remote branch with the current local one). Unlike with doing things by hand, it's actually quite hard to over-write files and lose work. Git will not let you pull in other people's changes until you have committed yours, and it will not let you push your changes to a remote repository until you have first pulled its changes in and merged them. And finding old versions by your commented history is much easier than trying to remember the meaning of your own filenames!
 
@@ -285,7 +285,7 @@ You are here because `git` and GitHub are incredibly useful research tools, that
 ----------------------------------------------------------------------
 #### <a name="contributing"></a>How do I contribute to a projekt on GitHub?
 
-If you have been given write access to a GitHub repository, you can "clone" it to your local machine and start work. If you have not, you can still contribute by making a "fork" (there's a button for this in the top righthand corner of the GitHub page for each repository). This will make a copy of the repository in your GitHub account, that is linked to the "base repo" - you can then clone from your fork to get the projekt onto your local machine.
+If you have been given write access to a GitHub repository, you can "clone" it to your local machine and start work. If you have not, you can still contribute by making a "fork" (there's a button for this in the top righthand corner of the GitHub page for each repository). This will make a copy of the repository in your GitHub account, that is linked to the "base repo" - you can then clone from your fork to get the project onto your local machine.
 
 To clone a repo, look down the right hand sidebar of its GitHub page. You should see "http clone URL" and a clipboard icon next to it. Under this there is the "SSH" option - select this, and then click on the clipboard. You now have the address of the remote repo in your clipboard. Go to your terminal, and cd to the place where you want your copy of the repo to live (it has its own folder). Then do "git clone &lt;paste&gt;" and hit return.
 
@@ -309,7 +309,7 @@ If your local repo is a clone of a fork, you'll want to connect it to the base r
 ----------------------------------------------------------------------
 #### <a name="committing"></a>How do I commit my edits?
 
-Git has a commit command, just like svn: mostly you will use it as phollows: git commit -am "comment"
+Git has a commit command, just like svn: mostly you will use it as follows: git commit -am "comment"
 
 The '-a' commits all changes. You can see what what you are about to commit by doing 'git status'. In fact, you should do a 'git status' before doing anything - it shows you which branch you are on, which files have been added, deleted, modified and so on.
 
@@ -325,17 +325,17 @@ To see all the remotes that you have access to, type 'git remote -v'.
 ----------------------------------------------------------------------
 #### <a name="conflicts"></a>I git pulled and now I have a konflict. What do I do?
 
-Fix it. The error messinge tells you which files contain the konflict.
+Fix it. The error messinge tells you which files contain the conflict.
 Open them in an editor and search for the string
 '&gt;&gt;&gt;&gt;&gt;&gt;'. Just like in svn, the portion of code
 between this string and the '======' mark is the remote version, while
 the portion below it and above the '&lt;&lt;&lt;&lt;&lt;&lt;' string is
 your local version. Edit the file so it is correct. Then, to resolve the
-konflict in &lt;filename&gt;you 'git add &lt;filename&gt;' before you then `git commit` to save your changes.
+conflict in &lt;filename&gt;you 'git add &lt;filename&gt;' before you then `git commit` to save your changes.
 You will also want to push your change to the remote branch on, for example, a hosting service
 like GitHub.
 
-If you find yourself fixing complicated konflicts often,
+If you find yourself fixing complicated conflicts often,
 you may want to learn how to use a `mergetool` to compare the differences.
 A more involved tutorial can be found
 [here](https://gist.github.com/karenyyng/f19ff75c60f18b4b8149)
@@ -367,7 +367,7 @@ You can make repos on <a href="https://github.com/">your own GitHub home page</a
 To turn one of your existing folders into a git repository, just do "git init" and then start git add'ing files. If you later want to push this to GitHub, you'll still need to start a repo on the GitHub site - just don't initialize it with a README or anything, just start it and then pick up its address (the thing that ends with ".git"). Then, on the command line, add a link to this new remote repository with "git remote add origin &lt;address&gt;". Then you can push to it as normal. More instructions <a href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/">here</a>.
 
 
-It's best to initialize a repo with a README (so you can tell peeple what what the projekt is about) and a license file (so everyone is clear about what what you are happy for peeple to copy and re-use) but you don't have to. A .gitignore is useful though - it tells git to ignore certain files and filetypes, so that they don't clutter up your git status messinges. Once the repo has been started, you can then clone it to your local machine.
+It's best to initialize a repo with a README (so you can tell peeple whatthe project is about) and a license file (so everyone is clear about what you are happy for peeple to copy and re-use) but you don't have to. A .gitignore is useful though - it tells git to ignore certain files and filetypes, so that they don't clutter up your git status messages. Once the repo has been started, you can then clone it to your local machine.
 
 In the repo's settings, at the bottom of the righthand sidebar, you can add collaborators (giving them read, write or admin access), and turn on the wiki associated with the repo, if you want.
 
